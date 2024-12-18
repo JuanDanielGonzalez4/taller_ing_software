@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::prefix('api')->group(function () {
+    Route::get('/products-category', [ReportController::class, 'ProductsWithCategory']);
+    Route::get('/products-order-price', [ReportController::class, 'ProductsOrdered']);
+    Route::get('/products-zero-stock', [ReportController::class, 'ProductsZeroStock']);
+    Route::get('/products-with-stock-above-ten', [ReportController::class, 'ProductStockTen']);
 });
