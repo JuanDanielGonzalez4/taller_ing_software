@@ -1,7 +1,7 @@
 const SERVICE_MAP: Record<string, string> = {
-  "/api/orders": "http://localhost:9001",
-  "/api/products": "http://localhost:9002",
-  "/api/reports": "http://localhost:9003",
+  "/api/orders": "http://localhost:8001",
+  "/api/products": "http://localhost:8002",
+  "/api/reports": "http://localhost:8003",
 };
 
 Deno.serve(async (req) => {
