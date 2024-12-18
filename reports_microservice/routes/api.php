@@ -16,9 +16,7 @@ use App\Http\Controllers\ReportController;
 */
 
 
-Route::prefix('api')->group(function () {
-    Route::get('/products-category', [ReportController::class, 'ProductsWithCategory']);
-    Route::get('/products-order-price', [ReportController::class, 'ProductsOrdered']);
-    Route::get('/products-zero-stock', [ReportController::class, 'ProductsZeroStock']);
-    Route::get('/products-with-stock-above-ten', [ReportController::class, 'ProductStockTen']);
-});
+Route::get('/products-category', [ReportController::class, 'ProductsWithCategory']);
+Route::get('/products-order-price', [ReportController::class, 'ProductsOrdered']);
+Route::get('/products-zero-stock', [ReportController::class, 'ProductsZeroStock']);
+Route::get('/products-stock-above-ten', [ReportController::class, 'ProductStockTen']);
