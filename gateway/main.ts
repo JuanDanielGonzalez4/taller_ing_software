@@ -12,7 +12,7 @@ Deno.serve(async (req) => {
   const apiKey = Deno.env.get("API_KEY");
 
   if (!apiKey) {
-    throw Error("Couldn't load api key!")
+    throw Error("Couldn't load api key!");
   }
 
   let targetServiceUrl: string | null = null;
@@ -31,7 +31,7 @@ Deno.serve(async (req) => {
 
   const targetUrl = `${targetServiceUrl}${path}${url.search}`;
 
-  const forwardHeaders = new Headers({"bearer": apiKey});
+  const forwardHeaders = new Headers({ "X-API-Key": apiKey });
 
   const forwardRequest = new Request(targetUrl, {
     method: method,
@@ -40,8 +40,8 @@ Deno.serve(async (req) => {
     redirect: "follow",
   });
 
-  console.log("\nREQUEST:")
-  console.log(forwardRequest)
+  console.log("\nREQUEST:");
+  console.log(forwardRequest);
 
   // Forward the request to the appropriate microservice
   let response: Response;
