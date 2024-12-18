@@ -21,6 +21,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::apiResource('categories', CategoriesController::class);
-Route::apiResource('products', ProductsController::class);
 
+Route::middleware(['token'])->group(function () {
+    Route::apiResource('categories', CategoriesController::class);
+    Route::apiResource('products', ProductsController::class);
+});

@@ -15,9 +15,9 @@ use App\Http\Controllers\OrdersController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+
+
+
+Route::middleware(['token'])->group(function () {
+    Route::get('/orders', [OrdersController::class, 'index']);
 });
-
-
-Route::get('/orders', [OrdersController::class, 'index']);
