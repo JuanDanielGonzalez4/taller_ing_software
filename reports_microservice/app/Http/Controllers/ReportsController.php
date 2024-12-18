@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
-class ReportController extends Controller
+class ReportsController extends Controller
 {
 
     public function ProductsWithCategory()
